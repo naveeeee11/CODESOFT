@@ -1,10 +1,9 @@
 import sqlite3
 
-# Connect to SQLite database (or create if it doesn't exist)
 conn = sqlite3.connect("todo_list.db")
 cursor = conn.cursor()
 
-# Create tasks table if not exists
+
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,7 +18,7 @@ conn.commit()
 
 
 def add_task():
-    """Adds a new task to the database."""
+
     title = input("Enter task title: ")
     description = input("Enter task description (optional): ")
     priority = input("Set priority (Low/Medium/High): ").capitalize()
@@ -32,7 +31,7 @@ def add_task():
 
 
 def view_tasks():
-    """Displays all tasks from the database."""
+
     cursor.execute("SELECT * FROM tasks")
     tasks = cursor.fetchall()
 
@@ -44,7 +43,7 @@ def view_tasks():
 
 
 def update_task():
-    """Updates task details based on task ID."""
+ 
     task_id = input("Enter Task ID to update: ")
     new_status = input("Mark as Completed? (yes/no): ").strip().lower()
 
@@ -57,14 +56,14 @@ def update_task():
 
 
 def delete_task():
-    """Deletes a task by ID."""
+
     task_id = input("Enter Task ID to delete: ")
     cursor.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
     conn.commit()
     print("Task deleted successfully!")
 
 
-# Main menu loop
+
 while True:
     print("\nTo-Do List Menu:")
     print("1. Add Task")
@@ -89,5 +88,4 @@ while True:
     else:
         print("Invalid choice! Please enter a valid option.")
 
-# Close database connection
 conn.close()
