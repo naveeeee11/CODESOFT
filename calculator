@@ -1,0 +1,28 @@
+""""#CALCULATOR
+
+///TASK 2
+
+Design a simple calculator with basic arithmetic operations.
+Prompt the user to input two numbers and an operation choice.
+
+Perform the calculation and display the result."""
+
+
+print("CALCULATOR")
+print("Enter two numbers and an operation choice.")
+print("1. Addition")
+print("2. Subtraction")
+print("3. Multiplication")
+print("4. Division")
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+choice = int(input("Enter choice: "))
+if choice == 1:
+    print(num1, "+", num2, "=", num1 + num2)
+elif choice == 2:
+    print(num1, "-", num2, "=", num1 - num2)
+elif choice == 3:
+    print(num1, "*", num2, "=", num1 * num2)
+elif choice == 4:
+    print(num1, "/", num2, "=", num1 / num2)
+else:print("Invalid choice")
